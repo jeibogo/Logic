@@ -1,0 +1,31 @@
+*{
+	font-size:20px;
+	font-family: Monospace;
+}
+body{
+	background-color: #cccccc;
+}
+#frame{
+	background-color: #a0a6c0;
+	margin: 10px;
+	height: 500px;
+	width: 1000px; 
+	position: relative;
+	text-align: center;
+}
+#frame h1{
+	padding-top:50px;
+	font-size: 30px;
+}
+#result{
+	color: #70763b;
+	background-color: #cddc4c;
+	margin: 5%;
+}
+.value{
+
+	display: inline-block;
+	margin: 10px;
+	padding: 10px;
+
+}
