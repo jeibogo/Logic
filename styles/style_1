@@ -22,7 +22,7 @@ body{
 	background-color: #cddc4c;
 	margin: 5%;
 }
-.value{
+.info{
 
 	display: inline-block;
 	margin: 10px;

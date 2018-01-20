@@ -61,12 +61,46 @@
 
 			if( $this->proposition ){
 
-				$this->proposition += LOGICA::getValueQ();   
+				$this->proposition -= LOGICA::getValueQ();   
 
 			}
 			else{
 
 				$this->proposition= LOGICA::getValueP() - LOGICA::getValueQ();
+
+			}//endif
+
+		} 
+
+		public function f_biconditional($r){
+
+			LOGICA::setValueQ($r);
+
+			if( $this->proposition ){
+
+				$this->proposition -= LOGICA::getValueQ();   
+
+			}
+			else{
+
+				$this->proposition=  !( LOGICA::getValueP() - LOGICA::getValueQ() );
+
+			}//endif
+
+		} 
+
+		public function f_conditional($r){
+
+			LOGICA::setValueQ($r);
+
+			if( $this->proposition ){
+
+				$this->proposition = !( $this->proposition * !LOGICA::getValueQ() );   
+
+			}
+			else{
+
+				$this->proposition=  !( LOGICA::getValueP() * !LOGICA::getValueQ() );
 
 			}//endif
 
@@ -127,6 +161,8 @@
 				<option value="and">AND</option>
 				<option value="or">OR</option>
 				<option value="xor">XOR</option>
+				<option value="only if">IF AND ONLY IF</option>
+				<option value="then">IF...THEN</option>
 			</select>
 
 
@@ -172,6 +208,14 @@
 					$object1->f_xor($prop_q);
 			break;
 
+			case 'only if':
+					$object1->f_biconditional($prop_q);
+			break;
+
+			case 'then':
+					$object1->f_conditional($prop_q);
+			break;
+
 			default:
 				echo "no operation selected";
 			break;
@@ -180,43 +224,50 @@
 
 
 
+		if( $operation == 'then' ){
+				echo "<h4 class='info'>if</h4>";
+			}
+
 		if($object1->getValueP() == 0){ 
-			echo "<h4 class='value' >FALSE</h4>";
-			
+
+
+			echo "<h4 class='info' >FALSE</h4>";
+					
 		}
 		else{
-			echo "<h4 class='value' >TRUE</h4>";
-			
+
+			echo "<h4 class='info' >TRUE</h4>";
+					
 		}//endif
 
 
 
-		echo "<h4 class='value' > " .$operation ."</h4>";
+		echo "<h4 class='info' > " .$operation ."</h4>";
 
 
 
 		if($object1->getValueQ() == 0) { 
 
-			echo "<h4 class='value'>FALSE</h4>";
+			echo "<h4 class='info'>FALSE</h4>";
 			
 		}
 		else{
-			echo "<h4 class='value'>TRUE</h4>";
+			echo "<h4 class='info'>TRUE</h4>";
 			
 		}//endif
 	
 
-		echo "<h3 class='value'>=</h3>";
+		echo "<h3 class='info'>=</h3>";
 
 
-		if( $object1->getResult() == 0 ){ 
+		if($object1->getResult() == 0){ 
 
-			echo "<h4 class='value'>FALSE</h4>";
+			echo "<h4 class='info'>FALSE</h4>";
 			
 		}
 		else{
 
-		echo "<h4 class='value'>TRUE</h4>";
+		echo "<h4 class='info'>TRUE</h4>";
 			
 		}//endif
 
