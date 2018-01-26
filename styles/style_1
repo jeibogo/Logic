@@ -1,27 +1,43 @@
 *{
-	font-size:20px;
+	font-size:15px;
 	font-family: Monospace;
 }
+
 body{
 	background-color: #cccccc;
 }
+
 #frame{
+
 	background-color: #a0a6c0;
-	margin: 10px;
-	height: 500px;
-	width: 1000px; 
-	position: relative;
+	max-height: 90%;
+	max-width: 90%; 
+	position: absolute;
+	top:10%;
+	left:25%;
+	right:25%;
+
+
 	text-align: center;
 }
+
+form{
+	margin:5%;
+	font-size :25%; 
+}
+
 #frame h1{
 	padding-top:50px;
-	font-size: 30px;
+	font-size: 1.5em;
 }
+
 #result{
 	color: #70763b;
 	background-color: #cddc4c;
 	margin: 5%;
+
 }
+
 .info{
 
 	display: inline-block;
